@@ -1,9 +1,12 @@
-app.factory('loadUser', function(Get) {
+app.factory('loadUser', function(Get, $http) {
     var user = 'andhikamaheva';
     return function($root) {
-        Get('getUser', user, function(resp) {
-            console.log(resp);
-            $root.user = resp;
-        })
+        if ($root.user.loaded == false) {
+            $http.get('https://api.github.com/users/andhikamaheva').success(function(resp) {
+                $root.user = resp;
+                $root.user.loaded = true;
+            });
+        }
+
     };
 });

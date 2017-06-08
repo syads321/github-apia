@@ -1,7 +1,47 @@
 <h1>Repos</h1>
+<form class="form-inline" ng-submit="searchRepo(query, type, sortby)">
+    <div class="row button-top">
+        <div class="col-xs-12 col-md-4">
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Type : {{params.type}} 
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li ng-class="{active : $parent.params.type == type}" ng-repeat="type in types" ng-click="$parent.params.type = type"><a>{{type}}</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-4">
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuLanguage" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Sort : {{params.sort}} 
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li ng-class="{active : $parent.params.sort == sort}" ng-repeat="sort in sorts" ng-click="$parent.params.sort = sort"><a>{{sort}}</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-4">
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuSort" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Direction : {{params.direction}} 
+    <span class="caret"></span>
+    </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li ng-class="{active : $parent.params.direction == direction}" ng-repeat="direction in directions" ng-click="$parent.params.direction = direction"><a>{{direction}}</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+</form>
+
 <div class="panel panel-default" ng-repeat="repo in repositories">
     <div class="panel-body">
         <h3>{{repo.name}}</h3>
-        <span class="badege">{{repo.language}}</span>
+        <p>{{repo.description}}</p>
     </div>
 </div>

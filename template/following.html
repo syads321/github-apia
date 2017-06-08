@@ -1,1 +1,11 @@
 <h1>Following</h1>
+<div class="media" ng-repeat="following in followings">
+    <div class="media-left media-middle">
+        <a href="{{following.url}}">
+            <img class="media-object" ng-src="{{following.avatar_url}}" alt="@{{following.raymond1995}}">
+        </a>
+    </div>
+    <div class="media-body">
+        <h4 class="media-heading">{{following.login}}</h4>
+    </div>
+</div>

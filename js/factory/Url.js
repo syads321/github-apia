@@ -3,9 +3,11 @@ app.factory('Url', function() {
     var username = 'andhikamaheva';
     var url = {
         getUser: baseUrl + username,
-        repos: baseUrl + username + '/repos'
+        repos: baseUrl + username + '/repos',
+        starred: baseUrl + username + '/starred',
+        following: baseUrl + username + '/following',
+        follower: baseUrl + username + '/followers',
+        subscribe: baseUrl + username + '/subscriptions'
     }
-    return function(name, param) {
-        return url[name] + param;
-    };
+    return url;
 })

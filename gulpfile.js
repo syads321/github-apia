@@ -5,6 +5,7 @@ var ngHtml2Js = require("gulp-ng-html2js");
 
 var libsjs = [
     './lib/jquery/jquery.min.js',
+    './lib/bootstrap/js/bootstrap.min.js',
     './lib/angular/angular.min.js',
     './lib/angular/angular-route.min.js',
     './lib/angular-animate/angular-animate.min.js',

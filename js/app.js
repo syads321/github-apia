@@ -9,16 +9,23 @@
          })
          .when('/repositories', {
              templateUrl: 'templates/repositories.html',
-             controller: 'Repositories'
+             controller: 'Repositories',
+             reloadOnSearch: false
          })
          .when('/stars', {
              templateUrl: 'templates/stars.html',
+             controller: 'Stars',
+             reloadOnSearch: false
          })
          .when('/followers', {
              templateUrl: 'templates/follower.html',
+             controller: 'Followers',
+             reloadOnSearch: false
          })
          .when('/following', {
              templateUrl: 'templates/following.html',
+             controller: 'Following',
+             reloadOnSearch: false
          });
      //$locationProvider.otherwise('/');
 
@@ -29,4 +36,5 @@
  app.run(['$rootScope', function($rootScope, $http) {
      // Etc. Initialize here.
      $rootScope.user = {};
+     $rootScope.user.loaded = false;
  }]);
